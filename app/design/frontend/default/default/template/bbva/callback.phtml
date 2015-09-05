@@ -1,0 +1,22 @@
+<?php if($paymentProcessed):?>
+	<p>Procesando...</p>
+<?php else: ?>
+	<p>Esperando respuesta del bbva...</p>
+<?php endif; ?>
+
+<script type="text/javascript">
+	var callbackUrl = "<?php echo $callbackUrl ?>";
+	var paymentProcessed = <?php echo $paymentProcessed ? 'true' : 'false';?>;
+
+	if (window.opener){
+		window.opener.focus();
+		window.opener.location = window.location;
+		window.close();
+	} else {
+		if(paymentProcessed){
+			window.location = callbackUrl;
+		} else{
+			var t= setTimeout("window.location.reload();",5000);
+		}
+	}
+</script>

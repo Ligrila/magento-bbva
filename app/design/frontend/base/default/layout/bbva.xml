@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<bbva_standard_redirect>
+		<reference name="content">
+			<block type="bbva/standard_redirect" name="redirect" template="bbva/redirect.phtml"></block>
+		</reference>
+	</bbva_standard_redirect>
+</layout>
